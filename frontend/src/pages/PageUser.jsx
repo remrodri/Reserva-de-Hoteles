@@ -25,6 +25,11 @@ function PageUser(props) {
     })
   }
 
+  const makeReservation=(hotel,room)=>{
+    
+  }
+  
+
   const handleShowHotels = () => {
     setShowPageHotels(true);
     setShowMyReservations(false);

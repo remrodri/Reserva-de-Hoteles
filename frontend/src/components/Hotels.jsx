@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CardHotel from "./CardHotel";
+
 
 
 function PageHotels(props) {
@@ -14,7 +15,8 @@ function PageHotels(props) {
       pool:false
     }
   );
-
+  
+  
   const handleCheckBoxChange =(checkboxName)=>{
     setCheckboxes({
       ...checkboxes,[checkboxName]:!checkboxes[checkboxName]
@@ -62,11 +64,11 @@ function PageHotels(props) {
         </label>
       </div>
       <div className="hotelSection">
-        <h2>Hoteles</h2>
+        <h2>Hotels</h2>
         <div className="hotelGroupCards">
-        {hotels.map((hotel)=>{
+        {hotels.map((hotel,index)=>{
           return(
-            <CardHotel hotel={hotel}/>
+            <CardHotel hotel={hotel} key={index}/>
           )
         })}
         </div>

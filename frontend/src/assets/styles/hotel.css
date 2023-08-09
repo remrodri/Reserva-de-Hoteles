@@ -1,0 +1,50 @@
+.hotelSection{
+  color: #ffffff;
+  width: 79.5%;
+  background: rgba(0, 0, 0, 0.256);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.842);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 1%;
+  
+}
+
+.hotelSection h2{
+  margin-left: 20px;
+  margin-top: 10px;  
+  margin-bottom: 1%;
+}
+
+
+/*GroupCardHotel*/
+.hotelGroupCards{
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.842);
+  backdrop-filter: blur(8.4px);
+  -webkit-backdrop-filter: blur(8.4px);
+  border: 1px solid rgba(255, 255, 255, 0.142);
+  height: 400px;
+  width: 95%;
+  margin-left: 2.5%;
+  padding-top: 3%;
+  overflow-y: auto;
+}
+
+/*cardhotel*/
+.cardHotel{
+  
+  margin-top: 1%;
+  width: 85%;
+  height: 400px;
+  background: rgba(0, 0, 0, 0.63);
+  border-radius: 9px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.842);
+  backdrop-filter: blur(8.4px);
+  -webkit-backdrop-filter: blur(8.4px);
+  border: 1px solid rgba(255, 255, 255, 0.142);
+  
+}

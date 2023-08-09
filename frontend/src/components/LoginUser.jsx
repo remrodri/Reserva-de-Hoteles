@@ -32,13 +32,13 @@ function LoginUser(props) {
       <div className='cardLogin'>
         <div>
           <h1>
-            Welcome to HOTEL RESERVATIONS
+            WELCOME TO HOTEL RESERVATIONS
           </h1>
         </div>
         <input
           type="text"
           value={user}
-          placeholder='Usuario'
+          placeholder='User'
           onChange={(event) => setUser(event.target.value)}
         />
         <input
@@ -47,7 +47,7 @@ function LoginUser(props) {
           placeholder='Password'
           onChange={(event) => { setPassword(event.target.value) }}
         />
-        <button onClick={onLogin}>Login</button>
+        <button onClick={onLogin}>LOGIN</button>
       </div>
     </div>
   )
