@@ -1,5 +1,5 @@
 var express = require('express');
-const { getAllUsers, getUserById, createUser, updateUser, removeUser } = require('../services/userService');
+const { getAllUsers, getUserById, createUser, updateUser, removeUser, getUserByParams } = require('../services/userService');
 var router = express.Router();
 
 /* GET users listing. */
@@ -35,5 +35,10 @@ router.delete('/:id',async function(req,res){
   res.send(result);
 });
 
+router.post('/login',async function(req,res){
+  const {body}=req;
+  const result = await getUserByParams(body);
+  res.send(result);
+});
 
 module.exports = router;

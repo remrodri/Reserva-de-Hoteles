@@ -29,7 +29,7 @@ async function removeUser(id) {
 
 async function getUserByParams(params) {
   const { user, password } = params;
-  const result = await getUserByParamsDB(usser, password);
+  const result = await getUserByParamsDB(user, password);
   return result;
 }
 

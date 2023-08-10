@@ -1,6 +1,6 @@
 import '../assets/styles/main.css';
 import { useState } from "react";
-import { login } from "../services/UserService";
+import { login,getAllUsers,login2 } from "../services/UserService";
 
 function LoginUser(props) {
   const [user, setUser] = useState('');
@@ -13,8 +13,9 @@ function LoginUser(props) {
     setPassword("");
   }
 
-  const onLogin = () => {
-    const userInfo = login(user, password);
+
+  const onLogin= async() => {
+    const userInfo = (await login2(user, password)).data;
     console.log(userInfo);
     console.log(JSON.stringify(userInfo));
     if (userInfo) {

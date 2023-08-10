@@ -1,3 +1,5 @@
+import axios from "axios"
+
 const users = [
   {
     name: "Luis Delgado",
@@ -29,7 +31,22 @@ function login(user, password) {
     )
 }
 
+async function getAllUsers(){
+  const result = await axios.get('http://localhost:3000/users');
+  return result;
+}
+
+async function login2(user,password){
+  const body = {user:user,password:password}
+  const result = await axios.post('http://localhost:3000/users/login',body);
+  console.log('result::: ', result);
+  return result;
+  
+}
+
 
 export {
-  login
+  login,
+  getAllUsers,
+  login2
 }

@@ -17,7 +17,7 @@ function Controller(params){
 
   useEffect(()=>{
     const userInfo = localStorage.getItem('userInfo');
-    console.log(userInfo);
+    //console.log(userInfo);
     if (userInfo) {
       setIsAuth(true);
     }
