@@ -5,7 +5,7 @@ import CardHotel from "./CardHotel";
 
 function PageHotels(props) {
 
-  const {hotels}=props;
+  const {hotels,makeReservation}=props;
   const [checkboxes,setCheckboxes]=useState(
     {
       pet:false,
@@ -68,7 +68,7 @@ function PageHotels(props) {
         <div className="hotelGroupCards">
         {hotels.map((hotel,index)=>{
           return(
-            <CardHotel hotel={hotel} key={index}/>
+            <CardHotel hotel={hotel} key={index} makeReservation={makeReservation}/>
           )
         })}
         </div>

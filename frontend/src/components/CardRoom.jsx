@@ -1,13 +1,11 @@
 function CardRoom(props) {
-  const { room } = props;
+  const { room, makeReservation, hotel} = props;
   return (
     
     <div className="cardRoom">
-      
       <div className="imgContainerCardRoom">
         <img src={room.roomImg} alt="" />
       </div>
-
       <div className="textContainerCardRoom">
         <p>Room number:</p>
         {room.roomNumber}
@@ -17,9 +15,8 @@ function CardRoom(props) {
         ${room.price}
       </div>
       <div className="espacioBotonReservar">
-        <button>book</button>
+        <button onClick={()=>{makeReservation(hotel._id,room.roomNumber)}}>book</button>
       </div>
-
     </div>
   )
 }

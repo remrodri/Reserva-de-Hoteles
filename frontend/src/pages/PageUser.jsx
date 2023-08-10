@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import PageHotels from "../components/Hotels";
 import PageUserReservation from "../components/UserReservations";
-import { getAllHotels } from "../services/HotelService";
+import { getAllHotels, updateHotelById } from "../services/HotelService";
 
 function PageUser(props) {
   const [showPageHotels, setShowPageHotels] = useState(true);
@@ -25,8 +25,30 @@ function PageUser(props) {
     })
   }
 
-  const makeReservation=(hotel,room)=>{
-    
+  const makeReservation=async(hotelId,roomNumber)=>{
+    //console.log("hotelId: ",hotelId," roomNumber: ",roomNumber);
+    const hotelFinded = hotels.find(hotelFromHotels => hotelFromHotels._id===hotelId);
+    if(!hotelFinded){
+      alert('El hotel no existe');
+      return;
+    }
+    //console.log(updateRooms((hotelFinded.rooms),updateRoomAvailability(hotelFinded.rooms,roomNumber)))
+    const updatedhotel = {...hotelFinded,rooms:updateRooms((hotelFinded.rooms),updateRoomAvailability(hotelFinded.rooms,roomNumber))}
+    console.log(updatedhotel);
+    await updateHotelById(updatedhotel._id,{rooms:updatedhotel.rooms});
+    await reloadHotelsData();
+  }
+  const updateRoomAvailability=(rooms,roomNumber)=>{
+    const roomFinded = rooms.find(roomFromRooms => roomFromRooms.roomNumber===roomNumber);
+    //console.log(roomFinded);
+    const roomUpdated = {...roomFinded,available:false}
+    //console.log(roomUpdated);
+    return roomUpdated;
+  }
+  const updateRooms=(rooms,roomUpdated)=>{
+    const filteredRooms = rooms.filter((room)=>room.roomNumber!==roomUpdated.roomNumber)
+    const updatedRooms = [...filteredRooms,roomUpdated];
+    return updatedRooms;
   }
   
 
@@ -53,7 +75,7 @@ function PageUser(props) {
         </div>
       </div>
       
-      {showPageHotels && <PageHotels hotels={hotels}/>}
+      {showPageHotels && <PageHotels hotels={hotels} makeReservation={makeReservation}/>}
       {showMyReservations && <PageUserReservation />}
 
 

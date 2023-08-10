@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 
 function CardHotel(props) {
-  const { hotel } = props;
+  const { hotel, makeReservation } = props;
 
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() { setIsOpen(true) }
@@ -41,10 +41,9 @@ function CardHotel(props) {
       <button
         onClick={() => openModal()}
         className='botonAbrirModal'
-      >available rooms</button>
+      >available <br/> rooms</button>
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className="Modal" overlayClassName="Overlay">
-        <HabitacionesComponent closeModal={closeModal} rooms={hotel.rooms}/>
-        
+        <HabitacionesComponent closeModal={closeModal} rooms={hotel.rooms} makeReservation={makeReservation} hotel={hotel}/>
       </Modal>
     </div>)
 }
