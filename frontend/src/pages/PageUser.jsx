@@ -55,7 +55,7 @@ function PageUser(props) {
     .catch((error)=>{console.log(error)})
     //const filteredReservations = reservtions.filter((reservation)=>reservation.client)
     
-    
+    loadReservedRooms();
   }
 
   const loadReservedRooms= ()=>{
